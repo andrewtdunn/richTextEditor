@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+ 	<meta charset="utf-8">
+ 	<title>rte</title>
+ 	<SCRIPT TYPE="text/javascript"> 
+<!-- 
+
+// disables right-click
+function clickIE() {if (document.all) {(message);return false;}} 
+function clickNS(e) {if 
+(document.layers||(document.getElementById&&!document.all)) { 
+if (e.which==2||e.which==3) {(message);return false;}}} 
+if (document.layers) 
+{document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;} 
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;} 
+document.oncontextmenu=new Function("return false") 
+// --> 
+</SCRIPT> 
+ 	<script type="text/javascript" src="js/lib/require.js"></script>
+
+ 	<link rel="stylesheet" href="http://fonts.mypublisher.com/apollo-webclient/fonts.css" />
+ 	<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css' >
+ 	<link rel='stylesheet' type='text/css' href='css/richEditor.css' >
+ 	<link rel='stylesheet' type='text/css' href='css/editorStyles.css' >
+	<link rel='stylesheet' type='text/css' href='css/spectrum.css' />
+
+</head>
+<body>
+	<div id="main"></div>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

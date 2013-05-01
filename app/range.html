@@ -1,0 +1,58 @@
+<html lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>The serialized HTML of a selection in Mozilla and IE</title>
+    <script type="text/javascript">
+    function getHTMLOfSelection () {
+      var range;
+      if (document.selection && document.selection.createRange) {
+        range = document.selection.createRange();
+        return range.htmlText;
+      }
+      else if (window.getSelection) {
+        var selection = window.getSelection();
+        if (selection.rangeCount > 0) {
+          range = selection.getRangeAt(0);
+
+
+          var clonedSelection = range.cloneContents();
+          var div = document.createElement('div');
+          div.appendChild(clonedSelection);
+          return range
+          ;
+        }
+        else {
+          return '';
+        }
+      }
+      else {
+        return '';
+      }
+    }
+
+
+    function wrapText(){
+      document.getElementById('output').value = getHTMLOfSelection();
+      getHTMLOfSelection().style.color = "red";
+    }
+
+
+    </script>
+    </head>
+    <body>
+    <div>
+        <p>Some text to <span class="test">test</span> the selection on.
+            Kibology for <b>all</b><br />. All <i>for</i> Kibology.
+    </p>
+    </div>
+    <form action="">
+    <p>
+    <input type="button" value="show HTML of selection"
+           onclick="wrapText();">
+    </p>
+    <p>
+    <textarea id="output" rows="5" cols="80"></textarea>
+    </p>
+    </form>
+    </body>
+    </html>
